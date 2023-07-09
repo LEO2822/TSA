@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Analyze Sentiment</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/analyze.css') }}">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Raleway:wght@300&family=Sacramento&display=swap');
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/analyze" class="active">Analyze Sentiment</a></li>
+                <li><a href="/search">Search Tweets</a></li>
+            </ul>
+        </header>
+
+        <table id="result">
+            <tr>
+                <th id='username'>Username</th>
+                <th id="totaltweets">Totaltweets</th>
+                <th id="retweetcount">Retweet Count</th>
+                <th id="text">Text</th>
+                <th id="hashtags">Hashtags</th>
+            </tr>
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{row["username"]}}</td>
+                <td>{{row["totaltweets"]}}</td>
+                <td>{{row["retweetcount"]}}</td>
+                <td>{{row["text"]}}</td>
+                <td>{{row["hashtags"]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+
+</html>
